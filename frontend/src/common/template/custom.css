@@ -19,5 +19,9 @@ button{
 }
 
 .btn-icon {
-    padding-top: 2px    
+    padding-top: 2px; 
+}
+
+.table-actions{
+    width: 150px;
 }

@@ -63,7 +63,8 @@ class BillingCycle extends Component {
                                     onSubmit={this.props.remove} 
                                     submitClass='danger'
                                     cancelClass='default'
-                                    submitLabel='Excluir' />
+                                    submitLabel='Excluir' 
+                                    disabled='true'/>
                             </TabContent>
                         </TabsContent>
                     </Tabs>

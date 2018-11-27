@@ -23,8 +23,7 @@ class BillingCycleList extends Component{
                         <i className='fa fa-pencil btn-icon'></i>
                     </button>
                     <button className='btn btn-default btn-custom' 
-                        onClick={() => this.props.showDelete(bc)}
-                        >
+                        onClick={() => this.props.showDelete(bc)}>
                         <i className='fa fa-trash-o btn-icon'></i>
                     </button>
                 </td>
@@ -41,6 +40,7 @@ class BillingCycleList extends Component{
                             <th>Nome</th>
                             <th>Mês</th>
                             <th>Ano</th>
+                            <th className='table-actions'>Ação</th>
                         </tr>
                     </thead>
                     <tbody>
