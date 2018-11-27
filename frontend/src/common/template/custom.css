@@ -3,3 +3,21 @@
     bottom: 0px;
     width: 100%;
 }
+
+button{
+    margin-left: 5px;
+}
+
+.btn-custom {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 12px;
+    line-height: 1.428571429;
+    border-radius: 15px;
+}
+
+.btn-icon {
+    padding-top: 2px    
+}
