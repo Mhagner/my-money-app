@@ -64,7 +64,7 @@ class BillingCycle extends Component {
                                     submitClass='danger'
                                     cancelClass='default'
                                     submitLabel='Excluir' 
-                                    disabled='true'/>
+                                    readOnly={true}/>
                             </TabContent>
                         </TabsContent>
                     </Tabs>

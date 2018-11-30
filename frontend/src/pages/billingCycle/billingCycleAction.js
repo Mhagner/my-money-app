@@ -30,22 +30,16 @@ export function remove(values) {
 function submit(values, method) {
     return dispatch => {
         const id = values._id ? values._id : ''
-        const confirmOptions = { okText: 'Sim', cancelText: 'Não' }
 
-        if (method === 'delete') {
-            toastr.confirm('Tem certeza que deseja excluir o regitro?', confirmOptions)  
-        }else{
-            axios[method](`${BASE_URL}/billingCycles/${id}`, values)
-                .then(resp => {
-                    toastr.success('Sucesso', `${mesageSubmit(method)} realizada com sucesso!`)
-                    dispatch(init())
-                })
-                .catch(e => {
-                    e.response.data.errors.forEach(error => toastr.error('Erro', error))
-                })
-        }
+        axios[method](`${BASE_URL}/billingCycles/${id}`, values)
+            .then(resp => {
+                toastr.success('Sucesso', `${mesageSubmit(method)} realizada com sucesso!`)
+                dispatch(init())
+            })
+            .catch(e => {
+                e.response.data.errors.forEach(error => toastr.error('Erro', error))
+            })
     }
-
 
 }
 

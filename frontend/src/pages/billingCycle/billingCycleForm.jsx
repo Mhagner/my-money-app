@@ -11,7 +11,7 @@ import CreditList from './creditList'
 class BillingCycleForm extends Component {
 
     render() {
-        const { handleSubmit, disabled, submitClass, submitLabel, init } = this.props
+        const { handleSubmit, disabled, submitClass, submitLabel, init, readOnly } = this.props
 
         return (
             <form role='form' onSubmit={handleSubmit}>
@@ -19,19 +19,22 @@ class BillingCycleForm extends Component {
                     <Field name='name'
                         component={LabelAndInput}
                         label='Nome' cols='12 4' placeholder='Informe o nome'
-                        disabled={disabled}
+                        disabled={disabled} readOnly={readOnly}
                     />
                     <Field name='month'
                         component={LabelAndInput} type='number'
                         label='Mês' cols='12 4' placeholder='Informe o mês'
-                        disabled={disabled}
+                        disabled={disabled} readOnly={readOnly}
                     />
 
                     <Field name='year'
                         component={LabelAndInput} type='number'
                         label='Ano' cols='12 4' placeholder='Informe o ano'
-                        disabled={disabled}
+                        disabled={disabled} readOnly={readOnly}
                     />
+
+                    <CreditList cols='12 6' readOnly={readOnly} />
+                    
                 </div>
                 
                 <div className='box-footer'>
