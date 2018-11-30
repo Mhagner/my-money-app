@@ -10,12 +10,15 @@ class CreditList extends Component{
         return(
             <tr>
                 <td><Field name='credits[0].name' component={Input} 
-                    placeholder='credito' readOnly={this.props.readOnly}/> </td>
+                    placeholder='Descrição' readOnly={this.props.readOnly}/> 
+                </td>
 
-                <td><Field name='credits[0].valor' component={Input} 
-                    placeholder='debito' readOnly={this.props.readOnly} /></td>
-                <td></td>
+                <td><Field name='credits[0].value' component={Input} 
+                    placeholder='Valor' readOnly={this.props.readOnly} />
+                </td>
+                
             </tr>
+            
         )
     }
 
