@@ -1,17 +1,18 @@
 import React, { Component } from 'react'
-import { reduxForm, Field } from 'redux-form'
+import { reduxForm, Field, formValueSelector } from 'redux-form'
 import LabelAndInput from '../../common/form/labelAndInput'
 import Row from '../../common/template/row'
 import Grid from '../../common/layout/grid'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { init } from '../billingCycle/billingCycleAction'
-import CreditList from './creditList'
+import ItemList from './itemList'
 
 class BillingCycleForm extends Component {
 
     render() {
-        const { handleSubmit, disabled, submitClass, submitLabel, init, readOnly } = this.props
+        const { credits, debts, handleSubmit, disabled, 
+            submitClass, submitLabel, init, readOnly } = this.props
 
         return (
             <form role='form' onSubmit={handleSubmit}>
@@ -32,11 +33,12 @@ class BillingCycleForm extends Component {
                         label='Ano' cols='12 4' placeholder='Informe o ano'
                         disabled={disabled} readOnly={readOnly}
                     />
-
-                    <CreditList cols='12 6' readOnly={readOnly} />
-                    
+                    <ItemList cols='12 6' list={credits} readOnly={readOnly}
+                        item='credits' legend='Créditos' />
+                    <ItemList cols='12 6' list={debts} readOnly={readOnly}
+                        item='debts' legend='Débitos' />
                 </div>
-                
+
                 <div className='box-footer'>
                     <button
                         type='submit'
@@ -56,5 +58,9 @@ class BillingCycleForm extends Component {
 
 BillingCycleForm = reduxForm({ form: 'billingCycleForm', destroyOnUnmount: false })(BillingCycleForm)
 const mapDispatchToProps = dispatch => bindActionCreators({ init }, dispatch)
-
-export default connect(null, mapDispatchToProps)(BillingCycleForm)
+const selector = formValueSelector('billingCycleForm')
+const mapStateToProps = state => ({ 
+        credits: selector(state, 'credits'),
+        debts: selector(state, 'debts')
+    })
+export default connect(mapStateToProps, mapDispatchToProps)(BillingCycleForm)

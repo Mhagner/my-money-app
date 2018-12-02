@@ -43,7 +43,7 @@ class Dashboard extends Component {
                     <Row>
                         <InfoBox
                             cols='12 3' color='blue' icon='check'
-                            value={`${value}`} text='Total de registros'/>
+                            value={`${value}`} text='Total de Ciclos'/>
                     </Row>
                 </Content>
             </div>
