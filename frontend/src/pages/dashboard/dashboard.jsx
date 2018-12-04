@@ -65,13 +65,10 @@ class Dashboard extends Component {
                             count='2'
                             text='Membros'
                         >
-                            <UserList 
-                                img='https://media.licdn.com/dms/image/C5603AQGw4-yfk8OIbQ/profile-displayphoto-shrink_100_100/0?e=1549497600&v=beta&t=njEISA-90pRwbHPBNZxvlUmsBc6ZlXcM5TkZxdjEJ8E'
-                                name='Mahilson Hagnner'
-                                descMonth='Março'
-                                year='2018'    
+                            <UserList name='Mahilson Hagnner' descMonth='Março'year='2018'
+                                img='https://bit.ly/2Rw4r5a'    
                             />
-                        </UserBox>
+                        </UserBox >
                     </Row>
                 </Content>
             </div>

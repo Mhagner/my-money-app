@@ -3,7 +3,8 @@ const mongoose = restful.mongoose
 
 const participantSchema = new mongoose.Schema({
     name: { type: String, required: true },
-    email: { type: String, required: true } 
+    email: { type: String, required: true },
+    img: { type: String, required: true },
 })
 
 const managentPaymentSchema = new mongoose.Schema({
