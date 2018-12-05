@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 
 class UserList extends Component {
-    render() {  
+    
+    render() {
         return (
             <li>
                 <img src={this.props.img} alt="User Image" />
