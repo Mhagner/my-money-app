@@ -7,12 +7,27 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { init } from '../billingCycle/billingCycleAction'
 import ItemList from './itemList'
+import Summary from '../billingCycle/summary'
 
 class BillingCycleForm extends Component {
 
+    calculateSummary(){
+        const sum = (t, v) => t + v
+        return{
+            sumOfCredits: this.props.credits.map(c => +c.value || 0).reduce(sum),
+            sumOfDebits: this.props.debts.map(d => +d.value || 0).reduce(sum)
+        }
+    }
+
     render() {
+
         const { credits, debts, handleSubmit, disabled, 
             submitClass, submitLabel, init, readOnly } = this.props
+        const { sumOfCredits, sumOfDebits } = this.calculateSummary()
+        const sumCreditsFormated = sumOfCredits.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })
+        const sumDebtsFormated = sumOfDebits.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })
+        const balance = sumOfCredits - sumOfDebits
+        const balanceFormated = balance.toLocaleString('pt-br', {style: 'currency', currency: 'BRL' })
 
         return (
             <form role='form' onSubmit={handleSubmit}>
@@ -33,10 +48,11 @@ class BillingCycleForm extends Component {
                         label='Ano' cols='12 4' placeholder='Informe o ano'
                         disabled={disabled} readOnly={readOnly}
                     />
+                    <Summary credit={sumCreditsFormated} debt={sumDebtsFormated} balance={balanceFormated}  />
                     <ItemList cols='12 6' list={credits} readOnly={readOnly}
                         item='credits' legend='Créditos' />
                     <ItemList cols='12 6' list={debts} readOnly={readOnly}
-                        item='debts' legend='Débitos' />
+                        item='debts' legend='Débitos' showStatus={true}/>
                 </div>
 
                 <div className='box-footer'>
