@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import { getSummary, getCount } from './dashboardActions'
+import { getSummary, getCount, getCountGroups } from './dashboardActions'
 import ContentHeader from '../../common/template/contenHeader'
 import Content from '../../common/template/content'
 import ValueBox from '../../common/widget/valueBox'
@@ -18,11 +18,13 @@ class Dashboard extends Component {
     componentWillMount() {
         this.props.getSummary()
         this.props.getCount()
+        this.props.getCountGroups()
     }
 
     render() {
         const { credit, debt } = this.props.summary
         const { value } = this.props.count
+        const { valueGroup } = this.props.countg
         const debtFormated = debt.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
         const creditFormated = credit.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
         const balance = credit - debt
@@ -53,10 +55,11 @@ class Dashboard extends Component {
                         />
                         <SmallBox
                             cols='12 4' color='purple' icon='users'
-                            value='0' text='Meus Grupos' linkDesc='Ver grupos'
+                            value={valueGroup} text='Meus Grupos' linkDesc='Ver grupos'
                             link='#groups'
                         />
                     </Row>
+                    {/*
                     <Row>
                         <UserBox
                             cols='12 8'
@@ -70,6 +73,7 @@ class Dashboard extends Component {
                             />
                         </UserBox >
                     </Row>
+                    */}
                 </Content>
             </div>
         )
@@ -77,9 +81,13 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = state => (
-    { summary: state.dashboard.summary, count: state.dashboard.count })
+    {   summary: state.dashboard.summary, 
+        count: state.dashboard.count,
+        countg: state.dashboard.countg
+    }
+    )
 
 const mapDispatchProps = dispatch =>
-    bindActionCreators({ getSummary, getCount }, dispatch)
+    bindActionCreators({ getSummary, getCount, getCountGroups }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchProps)(Dashboard)

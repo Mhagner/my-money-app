@@ -16,3 +16,11 @@ export function getCount(){
         payload: request
     }
 }
+
+export function getCountGroups(){
+    const request = axios.get(`${BASE_URL}/groups/count`)
+    return{
+        type: 'GROUPS_COUNT_FETCHED',
+        payload: request
+    }
+}

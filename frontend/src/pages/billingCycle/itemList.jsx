@@ -23,15 +23,16 @@ class ItemList extends Component {
     renderRows() {
         const list = this.props.list || []
         return list.map((item, index) => (
+            
             <tr key={index}>
                 <td><Field name={`${this.props.item}[${index}].name`} component={Input}
-                    placeholder='Descrição' cols='12 4' readOnly={this.props.readOnly} /> </td>
+                    placeholder='Descrição' readOnly={this.props.readOnly} cols='12' /> </td>
 
                 <td><Field name={`${this.props.item}[${index}].value`} component={Input}
-                    placeholder='Valor' cols='12 4' readOnly={this.props.readOnly} /></td>
+                    placeholder='Valor'  readOnly={this.props.readOnly} cols='12' /></td>
                 <If test={this.props.showStatus}>
                     <td><Field name={`${this.props.item}[${index}].status`} component={Input}
-                        placeholder='Status' cols='12 4' readOnly={this.props.readOnly} /></td>
+                        placeholder='Status'  readOnly={this.props.readOnly} cols='12' /></td>
                 </If>
                 <td>
                     <button
@@ -62,7 +63,6 @@ class ItemList extends Component {
             <Grid cols={this.props.cols}>
                 <fieldset>
                     <legend>{this.props.legend}</legend>
-                    <Row>
                         <table>
                             <thead>
                                 <tr>
@@ -78,7 +78,6 @@ class ItemList extends Component {
                                 {this.renderRows()}
                             </tbody>
                         </table>
-                    </Row>
                 </fieldset>
             </Grid>
         )

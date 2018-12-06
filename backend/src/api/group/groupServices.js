@@ -5,12 +5,12 @@ Group.methods(['get', 'post', 'put', 'delete'])
 Group.updateOptions({ new: true, runValidators: true })
 Group.after('post', errorHandle).after('put', errorHandle)
 
-Group.route('count', (req, res, next) => {
-    Group.count((error, value) => {
+Group.route('countg', (req, res, next) => {
+    Group.count((error, valueGroup) => {
         if (error) {
             res.status(500).json({ errors: [error] })
         } else {
-            res.json({ value })
+            res.json({ valueGroup })
         }
     })
 })

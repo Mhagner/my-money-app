@@ -8,6 +8,7 @@ import TabsHeader from '../../common/tab/tabsHeader'
 import TabsContent from '../../common/tab/tabsContent'
 import TabHeader from '../../common/tab/tabHeader'
 import TabContent from '../../common/tab/tabContent'
+import GroupList from '../group/groupList'
 
 class Group extends Component {
     render() {
@@ -30,7 +31,9 @@ class Group extends Component {
                                 label='Exluir' icon='trash-o' target='tabDelete' />
                         </TabsHeader>
                         <TabsContent>
-                            
+                            <TabContent id='tabList'>
+                                <GroupList />
+                            </TabContent>
                         </TabsContent>
                     </Tabs>
                 </Content>

@@ -20,7 +20,6 @@ class BillingCycleForm extends Component {
     }
 
     render() {
-
         const { credits, debts, handleSubmit, disabled, 
             submitClass, submitLabel, init, readOnly } = this.props
         const { sumOfCredits, sumOfDebits } = this.calculateSummary()
@@ -48,7 +47,11 @@ class BillingCycleForm extends Component {
                         label='Ano' cols='12 4' placeholder='Informe o ano'
                         disabled={disabled} readOnly={readOnly}
                     />
-                    <Summary credit={sumCreditsFormated} debt={sumDebtsFormated} balance={balanceFormated}  />
+                    <Summary 
+                        credit={sumCreditsFormated} 
+                        debt={sumDebtsFormated} 
+                        balance={balanceFormated} 
+                     />
                     <ItemList cols='12 6' list={credits} readOnly={readOnly}
                         item='credits' legend='Créditos' />
                     <ItemList cols='12 6' list={debts} readOnly={readOnly}
