@@ -11,7 +11,6 @@ import Grid from '../../common/layout/grid'
 import Row from '../../common/template/row'
 import SmallBox from '../../common/widget/smallBox'
 import UserBox from '../../common/widget/usersBox'
-import UserList from '../dashboard/usersList'
 
 class Dashboard extends Component {
 
@@ -59,33 +58,18 @@ class Dashboard extends Component {
                             link='#groups'
                         />
                     </Row>
-                    {/*
-                    <Row>
-                        <UserBox
-                            cols='12 8'
-                            color='danger'
-                            title='Membros do Grupo / Recebimento'
-                            count='2'
-                            text='Membros'
-                        >
-                            <UserList name='Mahilson Hagnner' descMonth='Março'year='2018'
-                                img='https://bit.ly/2Rw4r5a'    
-                            />
-                        </UserBox >
-                    </Row>
-                    */}
                 </Content>
             </div>
         )
     }
 }
 
-const mapStateToProps = state => (
-    {   summary: state.dashboard.summary, 
-        count: state.dashboard.count,
-        countg: state.dashboard.countg
-    }
-    )
+const mapStateToProps = state => 
+({   
+    summary: state.dashboard.summary, 
+    count: state.dashboard.count,
+    countg: state.dashboard.countg
+})
 
 const mapDispatchProps = dispatch =>
     bindActionCreators({ getSummary, getCount, getCountGroups }, dispatch)

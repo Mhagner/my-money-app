@@ -18,7 +18,7 @@ export default props => (
             />
             <MenuItem 
                 path='#groups' 
-                label='Meus grupos' 
+                label='Grupos' 
                 icon='users'
             />
         </MenuTree>

@@ -18,7 +18,7 @@ export function getCount(){
 }
 
 export function getCountGroups(){
-    const request = axios.get(`${BASE_URL}/groups/count`)
+    const request = axios.get(`${BASE_URL}/groups/countg`)
     return{
         type: 'GROUPS_COUNT_FETCHED',
         payload: request
