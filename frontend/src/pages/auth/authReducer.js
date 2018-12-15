@@ -1,5 +1,3 @@
-import { stat } from "fs";
-
 const userKey = '_mymoney_user'
 
 const INITIAL_STATE = {
