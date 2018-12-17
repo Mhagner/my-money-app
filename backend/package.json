@@ -5,9 +5,9 @@
   "main": "src/loader.js",
   "scripts": {
     "dev": "nodemon",
-    "start": "pm2 start src/loader.js --name my-monwy-backend",
-    "stop": "pm2 stop src/loader.js --name my-monwy-backend",
-    "reset": "pm2 restart src/loader.js --name my-monwy-backend"
+    "start": "pm2 start src/loader.js --name my-money-backend",
+    "stop": "pm2 stop src/loader.js --name my-money-backend",
+    "reset": "pm2 restart src/loader.js --name my-money-backend"
   },
   "keywords": [],
   "author": "",
